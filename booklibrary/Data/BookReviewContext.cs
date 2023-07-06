@@ -1,5 +1,6 @@
 using booklibrary.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace booklibrary.Data;
 public class BookReviewContext : IdentityDbContext
@@ -12,9 +13,10 @@ public class BookReviewContext : IdentityDbContext
 
     };
 
-    // public BookReviewContext(DbContextOptions<BookReviewContext> options) : base(options)
-    // {
+    public BookReviewContext(DbContextOptions<BookReviewContext> options) : base(options)
+    {
  
-    // }
-
+    }
+    public DbSet<BookReview> BookReviews {get; set;}
+    public DbSet<LibraryUser> LibraryUsers {get; set;}
 }
